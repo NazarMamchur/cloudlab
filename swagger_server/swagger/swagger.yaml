@@ -1,0 +1,27 @@
+openapi: 3.0.1
+info:
+  title: Cloud
+  description: This is a simple server to automate tiket creation.
+  version: 0.0.1
+servers:
+- url: http://localhost:5000/v1
+tags:
+- name: Health check
+paths:
+  /health:
+    get:
+      tags:
+      - Health check
+      summary: Provides an indication about the health of the API
+      operationId: health_check
+      responses:
+        "200":
+          description: API is healthy
+          content: {}
+        "503":
+          description: API is unhealthy or in degraded state
+          content: {}
+      x-swagger-router-controller: swagger_server.controllers.health_check_controller
+      x-openapi-router-controller: swagger_server.controllers.health_check_controller
+components: {}
+
